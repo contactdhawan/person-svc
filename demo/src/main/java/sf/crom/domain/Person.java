@@ -16,7 +16,7 @@ public class Person {
 
 	@Id
 	@GeneratedValue
-	private int id;
+	private long id;
 	
 	public Person() {
 		super();
@@ -36,12 +36,10 @@ public class Person {
 	private Date dob;
 	private int age;
 	private String ssn;
-	public int getId() {
+	public long getId() {
 		return id;
 	}
-	public void setId(int id) {
-		this.id = id;
-	}
+	
 	public String getLastName() {
 		return lastName;
 	}
@@ -72,6 +70,9 @@ public class Person {
 	public void setSsn(String ssn) {
 		this.ssn = ssn;
 	}
+	public void setId(long id) {
+		this.id = id;
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -79,7 +80,7 @@ public class Person {
 		result = prime * result + age;
 		result = prime * result + ((dob == null) ? 0 : dob.hashCode());
 		result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
-		result = prime * result + id;
+		result = prime * result + (int) (id ^ (id >>> 32));
 		result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
 		result = prime * result + ((ssn == null) ? 0 : ssn.hashCode());
 		return result;
@@ -119,5 +120,9 @@ public class Person {
 			return false;
 		return true;
 	}
-	
-}
+	@Override
+	public String toString() {
+		return "Person [id=" + id + ", lastName=" + lastName + ", firstName=" + firstName + ", dob=" + dob + ", age="
+				+ age + ", ssn=" + ssn + "]";
+	}
+	}
