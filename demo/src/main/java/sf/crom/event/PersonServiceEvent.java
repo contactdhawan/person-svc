@@ -1,4 +1,4 @@
-package sf.crom.service;
+package sf.crom.event;
 
 import org.springframework.context.ApplicationEvent;
 

@@ -1,4 +1,4 @@
-package sf.crom.service;
+package sf.crom.health;
 
 import javax.validation.constraints.NotNull;
 
